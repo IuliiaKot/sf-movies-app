@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Map from './MapComponent/Map'
 import Search from './SearchComponent/Search'
+import MovieList from './MovieList/MovieList'
 import axios from 'axios'
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
       <div>
         <Map/>
         <Search movies={this.state.movies}/>
+        <MovieList/>
       </div>
     );
   }

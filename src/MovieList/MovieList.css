@@ -1,0 +1,15 @@
+.movie-list {
+    position:absolute;
+    right:7px;
+    top: 60px;
+    z-index:3;
+    width: 26%;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    background-color: rgba(255,255,255,0.7);
+    min-height: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+}

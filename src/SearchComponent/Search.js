@@ -31,10 +31,12 @@ class Search extends Component {
         let result = this.props.movies.find(movie => {
             return movie.title = title.toLowerCase()
         })
-        this.setState({
-            hide: true,
-            searchMovie: result
-        })
+        if (result.length != 0) {
+            this.setState({
+                hide: true,
+                searchMovie: result
+            })
+        }
 
     }
 

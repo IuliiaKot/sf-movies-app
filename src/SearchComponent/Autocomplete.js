@@ -10,7 +10,6 @@ class Autocomplete extends Component {
     }
 
      selectMovie(e){
-            debugger
             let movie = e.target.innerText
             this.props.searchMovie(movie)
         }

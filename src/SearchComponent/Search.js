@@ -31,6 +31,13 @@ class Search extends Component {
         let result = this.props.movies.find(movie => {
             return movie.title = title.toLowerCase()
         })
+        // debugger
+        let geocoder = new window.google.maps.Geocoder();
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=129%20stanhope%20st%2011221&key=AIzaSyDoqvTFddnkoi5n6CLFc5kwbkbOBhWh0tI`)
+            .then(result => {
+                // let geocoder = new window.google.maps.Geocoder();
+                this.codeAddress('f',geocoder)
+            })
         if (result.length != 0) {
             this.setState({
                 hide: true,
@@ -39,6 +46,18 @@ class Search extends Component {
         }
 
     }
+
+ codeAddress(address, geocoder){
+  geocoder.geocode( {address:'129 Stanhope st. NY, New York'}, function(results, status) 
+  {
+    if (status == window.google.maps.GeocoderStatus.OK) 
+    {
+        debugger
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+   }
+  });
+ }
 
     render(){
         return (

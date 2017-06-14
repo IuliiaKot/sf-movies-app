@@ -18,7 +18,8 @@ class Search extends Component {
 
     updateAutocomplete(title){
         let rg = RegExp(`^${title}`, 'g');
-        let list = this.props.movies.filter((movie) => {
+        let list = this.props.movies.filter((data, index, self) => self.findIndex((t) => {return t.title === data.title; }) === index)
+        list = list.filter((movie) => {
            return movie.title.toLowerCase().match(rg)
         })
         this.setState({
@@ -31,20 +32,13 @@ class Search extends Component {
         let result = this.props.movies.find(movie => {
             return movie.title = title.toLowerCase()
         })
-        // debugger
-        let geocoder = new window.google.maps.Geocoder();
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=129%20stanhope%20st%2011221&key=AIzaSyDoqvTFddnkoi5n6CLFc5kwbkbOBhWh0tI`)
-            .then(result => {
-                // let geocoder = new window.google.maps.Geocoder();
-                this.codeAddress('f',geocoder)
-            })
         if (result.length != 0) {
             this.setState({
                 hide: true,
                 searchMovie: result
             })
         }
-
+        this.props.updateMoviesInfoByTitle(result)
     }
 
  codeAddress(address, geocoder){
@@ -75,3 +69,18 @@ class Search extends Component {
 }
 
 export default Search;
+
+
+// down vote
+// How about with some es6 magic?
+
+// things.thing = things.thing.filter((thing, index, self) => self.findIndex((t) => {return t.place === thing.place && t.name === thing.name; }) === index)
+
+
+// data = [
+//     {name: "pan", age: 89},
+//     {name: "iuliia", age: 19},
+//     {name: "pan", age: 99}
+// ]
+
+// data.filter((data, index, self) => self.findIndex((t) => {return t.name === data.name; }) === index)

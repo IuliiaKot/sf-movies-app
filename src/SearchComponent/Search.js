@@ -9,9 +9,11 @@ class Search extends Component {
         super();
         this.state = {
             autocompleteList: [],
-            hide: false
+            hide: true,
+            searchMovie: ''
         }
         this.updateAutocomplete = this.updateAutocomplete.bind(this)
+        this.searchMovie = this.searchMovie.bind(this)
     }
 
     updateAutocomplete(title){
@@ -20,16 +22,32 @@ class Search extends Component {
            return movie.title.toLowerCase().match(rg)
         })
         this.setState({
+            hide: false,
             autocompleteList: list
         })
+    }
+
+    searchMovie(title){
+        let result = this.props.movies.find(movie => {
+            return movie.title = title.toLowerCase()
+        })
+        this.setState({
+            hide: true,
+            searchMovie: result
+        })
+
     }
 
     render(){
         return (
             <div className='search'>
-                <SearchInput updateAutocomplete={this.updateAutocomplete}/>
-                <Autocomplete autocompleteList={this.state.autocompleteList}
+                <SearchInput 
+                    updateAutocomplete={this.updateAutocomplete}
                     hide={this.state.hide}/>
+                <Autocomplete 
+                    autocompleteList={this.state.autocompleteList}
+                    hide={this.state.hide}
+                    searchMovie={this.searchMovie}/>
             </div>
         )
     }

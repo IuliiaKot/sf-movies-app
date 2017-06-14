@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Map from './MapComponent/Map'
+import Search from './SearchComponent/Search'
 
 class App extends Component {
     
@@ -9,6 +10,7 @@ class App extends Component {
     return (
       <div>
         <Map/>
+        <Search/>
       </div>
     );
   }

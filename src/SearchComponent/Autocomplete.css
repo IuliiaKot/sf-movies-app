@@ -1,0 +1,15 @@
+.hide {
+    display: none
+}
+
+.autocomplete {
+ list-style: none;
+  max-height: 200px;
+  overflow: scroll;
+  box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+  margin: 0;
+  padding: 10px 0;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+}

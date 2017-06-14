@@ -8,12 +8,22 @@ class SearchInput extends Component {
         this.state ={
             searchTitle: ''
         }
+        this.updateAutocomplete = this.updateAutocomplete.bind(this)
+    }
+
+    updateAutocomplete(){
+        let searchMovie = this.refs.title.value;
+        this.setState({
+            searchTitle: searchMovie
+        })
+        this.props.updateAutocomplete(searchMovie)
     }
 
     render(){
         return(
             <div className="search-input">
-                <input type="text" placeholder="Enter movie here..."/>
+                <input ref="title" type="text" placeholder="Enter movie here..."
+                onChange={this.updateAutocomplete}/>
                 <button>Search</button>
             </div>
         )

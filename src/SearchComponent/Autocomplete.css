@@ -12,6 +12,7 @@
   position: absolute;
   background-color: white;
   width: 100%;
+  z-index:3;
 }
 
 .autocomplete li {
@@ -22,4 +23,17 @@
 .autocomplete li:hover {
     background: #799ace;
     color: white;
+}
+
+
+.menu > li {
+    display: block
+}
+
+.menu li:hover ul,  .menu li:hover ul {
+    position: abolute;
+    display: block;
+    padding: 32px 0 0 14px;
+    font-size: 16px;
+    z-index: 999px;
 }

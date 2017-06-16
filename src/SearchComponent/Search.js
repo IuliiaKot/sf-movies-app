@@ -30,9 +30,9 @@ class Search extends Component {
 
     searchMovie(title){
         let result = this.props.movies.find(movie => {
-            return movie.title = title.toLowerCase()
+            return movie.title === title
         })
-        if (result.length != 0) {
+        if (result) {
             this.setState({
                 hide: true,
                 searchMovie: result
@@ -41,17 +41,17 @@ class Search extends Component {
         this.props.updateMoviesInfoByTitle(result)
     }
 
- codeAddress(address, geocoder){
-  geocoder.geocode( {address:'129 Stanhope st. NY, New York'}, function(results, status) 
-  {
-    if (status == window.google.maps.GeocoderStatus.OK) 
-    {
-        debugger
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-   }
-  });
- }
+//  codeAddress(address, geocoder){
+//   geocoder.geocode( {address:'129 Stanhope st. NY, New York'}, function(results, status) 
+//   {
+//     if (status == window.google.maps.GeocoderStatus.OK) 
+//     {
+//         debugger
+//     } else {
+//       alert('Geocode was not successful for the following reason: ' + status);
+//    }
+//   });
+//  }
 
     render(){
         return (

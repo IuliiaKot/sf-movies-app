@@ -5,7 +5,6 @@ import './MovieInfo.css'
 class MovieInfo extends Component {
     render() {
         let {title, locations, release_year} = {...this.props.info}
-                // debugger
         return (
             <div className='info'>
                 <ul className="">

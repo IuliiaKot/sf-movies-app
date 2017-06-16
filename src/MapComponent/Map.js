@@ -2,11 +2,20 @@ import React, {Component} from 'react';
 import './Map.css'
 
 
+const deleteMarker = markers => {
+  markers.forEach(marker =>{
+    marker.setMap(null)
+  });
+  markers = [];
+}
+
+
 class Map extends Component{
     constructor(){
         super()
         this.state = {
-            map: ''
+            map: '',
+            marks: []
         }
     }
 
@@ -20,6 +29,23 @@ class Map extends Component{
         })
     }
 
+    componentWillReceiveProps(nextProp){
+        // debugger
+        // console.log(this.props.locations)
+        // console.log
+        // if (this.props.locations.length >= 1){
+            deleteMarker(this.state.marks)
+            nextProp.locations.forEach(function(element) {
+                // debugger
+                this.state.map.setCenter(element);
+                let marker = new window.google.maps.Marker({
+                    map: this.state.map,
+                    position: element
+                });
+                this.state.marks.push(marker)
+            }, this);
+        // }
+    }
     render(){
           const mapStyle = {
       width: '100%',

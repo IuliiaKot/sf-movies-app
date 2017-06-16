@@ -1,17 +1,14 @@
 
-const searchMovies = (movies, title) => {
-    return movies.filter(movie => {
-        return movie.title === title
+export const searchMovies = (movies, title) => {
+    let rg = RegExp(`^${title}`, 'g');
+    let list = movies.filter((data, index, self) => self.findIndex((t) => {return t.title === data.title; }) === index)
+    return list.filter((movie) => {
+           return movie.title.toLowerCase().match(rg)
     })
 };
 
-const findMovie = (movies, title) => {
+export const findMovie = (movies, title) => {
     return movies.find(movie => {
         return movie.title === title
     })
-}
-
-exports.default = {
-    search: searchMovies,
-    find: findMovie
 }

@@ -5,7 +5,7 @@
     /*z-index:3;*/
     width: 26%;
     background-color: rgba(255,255,255,0.7);
-    max-height: 400px;
+    max-height: 90%;
     box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
     overflow: scroll;
 }

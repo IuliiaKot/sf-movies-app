@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import SearchInput from './SearchInput'
-import './Search.css'
-import Autocomplete from './Autocomplete'
-import '../helper/movie_helper.js'
+import SearchInput from './SearchInput';
+import './Search.css';
+import Autocomplete from './Autocomplete';
+import {searchMovies, findMovie} from '../helper/movie_helper';
 
 
 class Search extends Component {
@@ -18,11 +18,7 @@ class Search extends Component {
     }
 
     updateAutocomplete(title){
-        let rg = RegExp(`^${title}`, 'g');
-        let list = this.props.movies.filter((data, index, self) => self.findIndex((t) => {return t.title === data.title; }) === index)
-        list = list.filter((movie) => {
-           return movie.title.toLowerCase().match(rg)
-        })
+        let list = searchMovies(this.props.movies, title)
         this.setState({
             hide: false,
             autocompleteList: list
@@ -30,9 +26,7 @@ class Search extends Component {
     }
 
     searchMovie(title){
-        let result = this.props.movies.find(movie => {
-            return movie.title === title
-        })
+        let result = findMovie(this.props.movies, title)
         if (result) {
             this.setState({
                 hide: true,

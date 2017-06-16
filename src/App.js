@@ -39,21 +39,13 @@ class App extends Component {
     resultOfSearch.forEach(movie => {
       this.codeAddress(movie, geocoder)
     })
-        //     let geocoder = new window.google.maps.Geocoder();
-        // fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=129%20stanhope%20st%2011221&key=AIzaSyDoqvTFddnkoi5n6CLFc5kwbkbOBhWh0tI`)
-        //     .then(result => {
-        //         // let geocoder = new window.google.maps.Geocoder();
-        //         // this.codeAddress('f',geocoder)
-        //     })
   }
 
 
     codeAddress(movie,geocoder){
-      // let rg = /\(([^)]+)\)/
       let location;
       if (movie.locations)
       {
-        // debugger
         location = movie.locations.match(/\(([^)]+)\)/)
         location = (location ? location[1] : movie.locations)
       } else {
@@ -63,8 +55,6 @@ class App extends Component {
       {
         if (status == window.google.maps.GeocoderStatus.OK) 
         {
-            // return results[0].geometry
-            //  tmp.push(results[0].geometry)
             this.setState((prevState, props) => {
               return {locations: prevState.locations.concat(results[0].geometry.location)}
             })

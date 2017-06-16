@@ -41,17 +41,6 @@ class Search extends Component {
         this.props.updateMoviesInfoByTitle(result)
     }
 
-//  codeAddress(address, geocoder){
-//   geocoder.geocode( {address:'129 Stanhope st. NY, New York'}, function(results, status) 
-//   {
-//     if (status == window.google.maps.GeocoderStatus.OK) 
-//     {
-//         debugger
-//     } else {
-//       alert('Geocode was not successful for the following reason: ' + status);
-//    }
-//   });
-//  }
 
     render(){
         return (
@@ -71,10 +60,6 @@ class Search extends Component {
 export default Search;
 
 
-// down vote
-// How about with some es6 magic?
-
-// things.thing = things.thing.filter((thing, index, self) => self.findIndex((t) => {return t.place === thing.place && t.name === thing.name; }) === index)
 
 
 // data = [

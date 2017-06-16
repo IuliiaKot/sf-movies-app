@@ -30,13 +30,8 @@ class Map extends Component{
     }
 
     componentWillReceiveProps(nextProp){
-        // debugger
-        // console.log(this.props.locations)
-        // console.log
-        // if (this.props.locations.length >= 1){
             deleteMarker(this.state.marks)
             nextProp.locations.forEach(function(element) {
-                // debugger
                 this.state.map.setCenter(element);
                 let marker = new window.google.maps.Marker({
                     map: this.state.map,
@@ -44,7 +39,6 @@ class Map extends Component{
                 });
                 this.state.marks.push(marker)
             }, this);
-        // }
     }
     render(){
           const mapStyle = {

@@ -53,7 +53,7 @@ class App extends Component {
       }
       geocoder.geocode( {address:`${location}, San Francisco, CA`}, function(results, status) 
       {
-        if (status == window.google.maps.GeocoderStatus.OK) 
+        if (status === window.google.maps.GeocoderStatus.OK) 
         {
             this.setState((prevState, props) => {
               return {locations: prevState.locations.concat(results[0].geometry.location)}

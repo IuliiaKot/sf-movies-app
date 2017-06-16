@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SearchInput from './SearchInput'
 import './Search.css'
 import Autocomplete from './Autocomplete'
+import '../helper/movie_helper.js'
 
 
 class Search extends Component {
@@ -58,14 +59,3 @@ class Search extends Component {
 }
 
 export default Search;
-
-
-
-
-// data = [
-//     {name: "pan", age: 89},
-//     {name: "iuliia", age: 19},
-//     {name: "pan", age: 99}
-// ]
-
-// data.filter((data, index, self) => self.findIndex((t) => {return t.name === data.name; }) === index)

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SearchInput from './SearchInput';
 import './Search.css';
 import Autocomplete from './Autocomplete';
-import {searchMovies, findMovie} from '../helper/movie_helper';
+import {searchMovies, findMovie} from '../helper/movieHelpers';
 
 
 class Search extends Component {

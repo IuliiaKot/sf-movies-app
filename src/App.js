@@ -19,12 +19,12 @@ class App extends Component {
     this.updateMoviesInfoByTitle = this.updateMoviesInfoByTitle.bind(this)
   }
 
-  componentDidMount(){
-    axios.get('https://data.sfgov.org/resource/wwmu-gmzc.json')
-      .then(result => {
-        this.setState({movies: result.data})
-      })
-  }
+  // componentDidMount(){
+  //   axios.get('https://data.sfgov.org/resource/wwmu-gmzc.json')
+  //     .then(result => {
+  //       this.setState({movies: result.data})
+  //     })
+  // }
 
   updateMoviesInfoByTitle(input){
     let resultOfSearch = this.state.movies.filter(movie => {

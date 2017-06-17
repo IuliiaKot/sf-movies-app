@@ -59,7 +59,7 @@ class App extends Component {
               return {locations: prevState.locations.concat(results[0].geometry.location)}
             })
         } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+          // alert('Geocode was not successful for the following reason: ' + status);
       }
       }.bind(this));
     }

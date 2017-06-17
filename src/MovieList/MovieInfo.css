@@ -9,11 +9,12 @@
 }
 
 
-.info ul {
+.info .card {
     list-style: none;
     font-size: 14px;
+    padding: 10px;
 }
 
-.info ul li {
+/*.info  {
     padding-top: 8px;
-}
+}*/

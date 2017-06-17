@@ -4,17 +4,19 @@
     /*padding: 5px;*/
     margin:  5px;
     background-color: rgba(255,255,255,0.9);
-    box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
-  
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.5); 
 }
-
 
 .info .card {
     list-style: none;
     font-size: 14px;
     padding: 10px;
+    width: 100%;
 }
 
+.info .card:hover {
+   background: #98b1e1;
+}
 /*.info  {
     padding-top: 8px;
 }*/

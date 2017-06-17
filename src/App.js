@@ -67,10 +67,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/*<Map locations={this.state.locations}/>
+        <Map locations={this.state.locations}/>
         <Search movies={this.state.movies} updateMoviesInfoByTitle={this.updateMoviesInfoByTitle}/>
-        <MovieList moviesList={this.state.searchedMovie}/>*/}
-        Hello
+        <MovieList moviesList={this.state.searchedMovie}/>
+        {/*Hello*/}
       </div>
     );
   }

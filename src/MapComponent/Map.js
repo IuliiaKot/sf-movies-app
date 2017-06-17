@@ -30,6 +30,7 @@ class Map extends Component{
     }
 
     componentWillReceiveProps(nextProp){
+        var  movieInfo = new window.google.maps.InfoWindow();
             deleteMarker(this.state.marks)
             nextProp.locations.forEach(function(element) {
                 this.state.map.setCenter(element);
@@ -37,6 +38,12 @@ class Map extends Component{
                     map: this.state.map,
                     position: element
                 });
+                 window.google.maps.event.addListener(marker, 'click', ((marker, movieInfo) => {
+                        return () => {
+                            movieInfo.setContent('Hello')
+                            movieInfo.open(this.state.map, marker)
+                        }
+                    })(marker, movieInfo))
                 this.state.marks.push(marker)
             }, this);
     }

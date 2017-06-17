@@ -24,7 +24,7 @@ class Map extends Component{
         this.setState({
             map: new window.google.maps.Map(this.refs.map, {
                 center: {lat: 37.774929, lng: -122.419416},
-                zoom: 12
+                zoom: 13
             })
         })
     }
@@ -41,10 +41,6 @@ class Map extends Component{
             }, this);
     }
     render(){
-          const mapStyle = {
-      width: '100%',
-      height: '750'
-    };
         return (
             <div ref="map" id="map">Map</div>
         )

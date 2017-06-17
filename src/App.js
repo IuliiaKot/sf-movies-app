@@ -19,12 +19,12 @@ class App extends Component {
     this.updateMoviesInfoByTitle = this.updateMoviesInfoByTitle.bind(this)
   }
 
-  // componentDidMount(){
-  //   axios.get('https://data.sfgov.org/resource/wwmu-gmzc.json')
-  //     .then(result => {
-  //       this.setState({movies: result.data})
-  //     })
-  // }
+  componentDidMount(){
+    axios.get('https://data.sfgov.org/resource/wwmu-gmzc.json')
+      .then(result => {
+        this.setState({movies: result.data})
+      })
+  }
 
   updateMoviesInfoByTitle(input){
     let resultOfSearch = this.state.movies.filter(movie => {
@@ -70,7 +70,6 @@ class App extends Component {
         <Map locations={this.state.locations}/>
         <Search movies={this.state.movies} updateMoviesInfoByTitle={this.updateMoviesInfoByTitle}/>
         <MovieList moviesList={this.state.searchedMovie}/>
-        {/*Hello*/}
       </div>
     );
   }

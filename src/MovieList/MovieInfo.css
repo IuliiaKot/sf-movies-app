@@ -1,9 +1,19 @@
 .info {
     /*width: 90%;*/
     display: flex;
-    padding: 10px;
+    /*padding: 5px;*/
     margin:  5px;
     background-color: rgba(255,255,255,0.9);
     box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
   
+}
+
+
+.info ul {
+    list-style: none;
+    font-size: 14px;
+}
+
+.info ul li {
+    padding-top: 8px;
 }

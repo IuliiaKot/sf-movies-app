@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 class Filter extends Component {
     changeSearch = (e) => {
-        // console.log(e.target.value)
         this.props.changeFilter(e.target.value)
     }
 
@@ -31,7 +30,7 @@ class Filter extends Component {
                     </form>
                 </div>
                 <div className="footer">
-                    <button onClick={this.props.onClose}>
+                    <button className=" btn"onClick={this.props.onClose}>
                         Close
                     </button>
                 </div>

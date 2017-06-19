@@ -15,7 +15,6 @@ class SearchInput extends Component {
     }
 
     toggleFilter(){
-        debugger
         this.props.toggle()
     }
 

@@ -86,10 +86,6 @@ class App extends Component {
     return (
       <div>
           <div className="App">
-            {/*<button onClick={this.toggleFilter}>
-              Filter
-            </button>*/}
-
             <Filter show={this.state.isOpen}
               onClose={this.toggleFilter}
               changeFilter={this.updateFilter}

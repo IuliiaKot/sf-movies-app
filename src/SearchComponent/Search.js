@@ -19,7 +19,7 @@ class Search extends Component {
     }
 
     updateAutocomplete(title){
-        let list = searchMovies(this.props.movies, title)
+        let list = searchMovies(this.props.movies, title, this.props.searchProp)
         this.setState({
             hide: false,
             autocompleteList: list
@@ -27,13 +27,17 @@ class Search extends Component {
     }
 
     searchMovie(title){
-        let result = findMovie(this.props.movies, title)
+        debugger
+        let result = findMovie(this.props.movies, title, this.props.searchProp)
         if (result) {
             this.setState({
-                hide: true,
+                hide: !this.state.hide,
                 searchMovie: result
             })
         } else {
+            this.setState({
+                hide: !this.state.hide
+            })
             result = {title: ''}
         }
         this.props.updateMoviesInfoByTitle(result)

@@ -32,6 +32,8 @@ class Search extends Component {
                 hide: true,
                 searchMovie: result
             })
+        } else {
+            result = {title: ''}
         }
         this.props.updateMoviesInfoByTitle(result)
     }
@@ -42,7 +44,8 @@ class Search extends Component {
             <div className='search'>
                 <SearchInput 
                     updateAutocomplete={this.updateAutocomplete}
-                    hide={this.state.hide}/>
+                    hide={this.state.hide}
+                    searchMovie={this.searchMovie}/>
                 <Autocomplete 
                     autocompleteList={this.state.autocompleteList}
                     hide={this.state.hide}

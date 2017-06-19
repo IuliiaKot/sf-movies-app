@@ -9,6 +9,6 @@ export const searchMovies = (movies, title) => {
 
 export const findMovie = (movies, title) => {
     return movies.find(movie => {
-        return movie.title === title
+        return movie.title.toLowerCase() === title.toLowerCase()
     })
 }

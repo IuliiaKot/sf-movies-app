@@ -4,15 +4,15 @@ import './Autocomplete.css'
 
 
 class Autocomplete extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.selectMovie = this.selectMovie.bind(this)
     }
 
      selectMovie(e){
-            let movie = e.target.innerText
-            this.props.searchMovie(movie)
-        }
+        let movie = e.target.innerText
+        this.props.searchMovie(movie)
+    }
 
     render(){
 

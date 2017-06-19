@@ -9,6 +9,7 @@ class SearchInput extends Component {
             searchTitle: ''
         }
         this.updateAutocomplete = this.updateAutocomplete.bind(this)
+        this.selectMovie = this.selectMovie.bind(this)
     }
 
     updateAutocomplete(){
@@ -18,13 +19,19 @@ class SearchInput extends Component {
         })
         this.props.updateAutocomplete(searchMovie)
     }
+    selectMovie(e){
+        if (e.which === 13 || e.type === 'click'){
+            let movie = this.refs.title.value
+            this.props.searchMovie(movie)
+        }
+    }
 
     render(){
         return(
             <div className="search-input">
                 <input ref="title" type="text" placeholder="Enter movie here..."
-                onChange={this.updateAutocomplete}/>
-                <button>Search</button>
+                onChange={this.updateAutocomplete} onKeyPress={this.selectMovie}/>
+                <button onClick={this.selectMovie}>Search</button>
             </div>
         )
     }

@@ -5,3 +5,13 @@
     z-index:3;
     width: 26%;
 }
+
+@media only screen and (max-width: 500px) {
+    .search {
+    position:absolute;
+    left: 10%;
+    top: 45px;
+    z-index:3;
+    width: 85%;
+    }
+}

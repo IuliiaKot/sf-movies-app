@@ -86,9 +86,9 @@ class App extends Component {
     return (
       <div>
           <div className="App">
-            <button onClick={this.toggleFilter}>
+            {/*<button onClick={this.toggleFilter}>
               Filter
-            </button>
+            </button>*/}
 
             <Filter show={this.state.isOpen}
               onClose={this.toggleFilter}
@@ -100,7 +100,8 @@ class App extends Component {
         <Map locations={this.state.locations} searchedMovie={this.state.searchedMovie}/>
         <Search movies={this.state.movies} 
                 updateMoviesInfoByTitle={this.updateMoviesInfoByTitle}
-                searchProp={this.state.defaultSearch}/>
+                searchProp={this.state.defaultSearch}
+                toggleFilter={this.toggleFilter}/>
         <MovieList moviesList={this.state.searchedMovie}/>
       </div>
     );

@@ -11,6 +11,12 @@ class SearchInput extends Component {
         }
         this.updateAutocomplete = this.updateAutocomplete.bind(this)
         this.selectMovie = this.selectMovie.bind(this)
+        this.toggleFilter = this.toggleFilter.bind(this)
+    }
+
+    toggleFilter(){
+        debugger
+        this.props.toggle()
     }
 
     updateAutocomplete(){
@@ -33,6 +39,9 @@ class SearchInput extends Component {
                 <input ref="title" type="text" placeholder="Enter movie here..."
                 onChange={this.updateAutocomplete} onKeyPress={this.selectMovie}
                 />
+                <img onClick={this.toggleFilter} 
+                src="https://cdn2.iconfinder.com/data/icons/cute-tech-icon-set-1/512/Filter-64.png" id="input_img"/>
+
                 <button onClick={this.selectMovie}>Search</button>
             </div>
         )

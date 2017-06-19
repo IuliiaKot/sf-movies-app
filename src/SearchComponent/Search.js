@@ -54,7 +54,8 @@ class Search extends Component {
                     updateAutocomplete={this.updateAutocomplete}
                     hide={this.state.hide}
                     searchMovie={this.searchMovie}
-                    title={this.state.searchMovie}/>
+                    title={this.state.searchMovie}
+                    toggle={this.props.toggleFilter}/>
                 <Autocomplete 
                     autocompleteList={this.state.autocompleteList}
                     hide={this.state.hide}

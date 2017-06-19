@@ -9,7 +9,7 @@
     width: 100%;
     padding: 10px;
     font-size: 15px;
-    border: none
+    border: none;
 }
 
 .search-input button{
@@ -26,4 +26,11 @@
     font-size: 14px;
     background: #93b2e2;
     box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+}
+#input_img {
+    position:absolute;
+    bottom:2px;
+    right:80px;
+    width:37px;
+    height:37px;
 }

@@ -9,6 +9,25 @@ const deleteMarker = markers => {
   markers = [];
 }
 
+const addMarker = (map, locations, movieInfo) => {
+    let marks = [];
+    locations.forEach( location => {
+        map.setCenter(location.LatLng);
+        let marker = new window.google.maps.Marker({
+            position: location.LatLng
+        });
+        marker.setMap(map);
+        window.google.maps.event.addListener(marker, 'click', ((marker, movieInfo) => {
+            return () => {
+                movieInfo.setContent(location.address)
+                movieInfo.open(map, marker)
+            }
+        })(marker, movieInfo))
+        marks.push(marker);
+    })
+    return marks;
+}
+
 
 class Map extends Component{
     constructor(){
@@ -23,29 +42,21 @@ class Map extends Component{
         const sf = {lat: 37.774929, lng: -122.419416}
         this.setState({
             map: new window.google.maps.Map(this.refs.map, {
-                center: {lat: 37.774929, lng: -122.419416},
+                center: sf,
                 zoom: 13
             })
         })
     }
 
     componentWillReceiveProps(nextProp){
-        var  movieInfo = new window.google.maps.InfoWindow();
-            deleteMarker(this.state.marks)
-            nextProp.locations.forEach(function(element) {
-                this.state.map.setCenter(element);
-                let marker = new window.google.maps.Marker({
-                    map: this.state.map,
-                    position: element
-                });
-                 window.google.maps.event.addListener(marker, 'click', ((marker, movieInfo) => {
-                        return () => {
-                            movieInfo.setContent('Hello')
-                            movieInfo.open(this.state.map, marker)
-                        }
-                    })(marker, movieInfo))
-                this.state.marks.push(marker)
-            }, this);
+        if (this.state.locations !== nextProp.locations){
+            let movieInfo = new window.google.maps.InfoWindow();
+            deleteMarker(this.state.marks);
+            let allmarkers = addMarker(this.state.map, nextProp.locations, movieInfo);
+            this.setState({
+                marks: allmarkers
+            })
+        }
     }
     render(){
         return (

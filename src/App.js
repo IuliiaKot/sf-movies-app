@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Map from './MapComponent/Map'
-import Search from './SearchComponent/Search'
-import MovieList from './MovieList/MovieList'
-import axios from 'axios'
+import Map from './MapComponent/Map';
+import Search from './SearchComponent/Search';
+import MovieList from './MovieList/MovieList';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -55,8 +54,9 @@ class App extends Component {
       {
         if (status === window.google.maps.GeocoderStatus.OK) 
         {
+            let location = {LatLng: results[0].geometry.location, address: movie.locations};
             this.setState((prevState, props) => {
-              return {locations: prevState.locations.concat(results[0].geometry.location)}
+              return {locations: prevState.locations.concat(location)}
             })
         } else {
           // alert('Geocode was not successful for the following reason: ' + status);
@@ -67,7 +67,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Map locations={this.state.locations}/>
+        <Map locations={this.state.locations} searchedMovie={this.state.searchedMovie}/>
         <Search movies={this.state.movies} updateMoviesInfoByTitle={this.updateMoviesInfoByTitle}/>
         <MovieList moviesList={this.state.searchedMovie}/>
       </div>

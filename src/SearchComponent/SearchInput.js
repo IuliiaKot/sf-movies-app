@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './SearchInput.css'
+import './SearchInput.css';
+import PropTypes from 'prop-types';
 
 
 class SearchInput extends Component {
@@ -30,11 +31,19 @@ class SearchInput extends Component {
         return(
             <div className="search-input">
                 <input ref="title" type="text" placeholder="Enter movie here..."
-                onChange={this.updateAutocomplete} onKeyPress={this.selectMovie}/>
+                onChange={this.updateAutocomplete} onKeyPress={this.selectMovie}
+                />
                 <button onClick={this.selectMovie}>Search</button>
             </div>
         )
     }
+}
+
+
+SearchInput.propTypes = {
+    updateAutocomplete: PropTypes.func.isRequired,
+    searchMovie: PropTypes.func.isRequired
+
 }
 
 export default SearchInput;

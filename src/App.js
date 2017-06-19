@@ -4,6 +4,7 @@ import Map from './MapComponent/Map';
 import Search from './SearchComponent/Search';
 import MovieList from './MovieList/MovieList';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 
 class App extends Component {
@@ -73,6 +74,11 @@ class App extends Component {
       </div>
     );
   }
+}
+
+
+App.propTypes = {
+  movies: PropTypes.array.isRequired
 }
 
 export default App;

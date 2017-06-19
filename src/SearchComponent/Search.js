@@ -3,6 +3,7 @@ import SearchInput from './SearchInput';
 import './Search.css';
 import Autocomplete from './Autocomplete';
 import {searchMovies, findMovie} from '../helper/movieHelpers';
+import PropTypes from 'prop-types';
 
 
 class Search extends Component {
@@ -45,7 +46,8 @@ class Search extends Component {
                 <SearchInput 
                     updateAutocomplete={this.updateAutocomplete}
                     hide={this.state.hide}
-                    searchMovie={this.searchMovie}/>
+                    searchMovie={this.searchMovie}
+                    title={this.state.searchMovie}/>
                 <Autocomplete 
                     autocompleteList={this.state.autocompleteList}
                     hide={this.state.hide}
@@ -53,6 +55,11 @@ class Search extends Component {
             </div>
         )
     }
+}
+
+Search.propTypes = {
+    autocompleteList: PropTypes.array.isRequires,
+    updateMoviesInfoByTitle: PropTypes.func.isRequired
 }
 
 export default Search;

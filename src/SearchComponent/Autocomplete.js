@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './Autocomplete.css'
+import './Autocomplete.css';
+import PropTypes from 'prop-types';
 
 
 
@@ -25,6 +26,10 @@ class Autocomplete extends Component {
             </div>
         )
     }
+}
+
+Autocomplete.propTypes = {
+    searchMovie: PropTypes.func.isRequired
 }
 
 

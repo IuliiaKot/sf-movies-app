@@ -36,16 +36,12 @@ class Search extends Component {
                         searchMovie: result
                     })
                 } else {
-                    this.setState({
-                        hide: !this.state.hide
-                    })
+                    this.setState({hide: !this.state.hide})
                     result = {title: ''}
             }
              this.props.updateMoviesInfoByTitle(result)
         } else {
-            this.setState({
-                        hide: !this.state.hide
-                    })
+            this.setState({hide: !this.state.hide})
             this.props.updateMoviesInfoByTitle({'release_year': title})
         }
     }
@@ -69,7 +65,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-    autocompleteList: PropTypes.array.isRequires,
+    autocompleteList: PropTypes.func.isRequires,
     updateMoviesInfoByTitle: PropTypes.func.isRequired
 }
 

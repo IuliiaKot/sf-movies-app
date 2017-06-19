@@ -87,14 +87,14 @@ class App extends Component {
       <div>
           <div className="App">
             <button onClick={this.toggleFilter}>
-              Open the modal
+              Filter
             </button>
 
             <Filter show={this.state.isOpen}
               onClose={this.toggleFilter}
               changeFilter={this.updateFilter}
               defaultSearch={this.state.defaultSearch}>
-              Here's some content for the modal
+              Filter
             </Filter>
           </div>
         <Map locations={this.state.locations} searchedMovie={this.state.searchedMovie}/>

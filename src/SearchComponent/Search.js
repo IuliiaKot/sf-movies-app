@@ -19,7 +19,7 @@ class Search extends Component {
     }
 
     updateAutocomplete(title){
-        let list = searchMovies(this.props.movies, title)
+        let list = searchMovies(this.props.movies, title, this.props.searchProp)
         this.setState({
             hide: false,
             autocompleteList: list
@@ -27,16 +27,23 @@ class Search extends Component {
     }
 
     searchMovie(title){
-        let result = findMovie(this.props.movies, title)
-        if (result) {
-            this.setState({
-                hide: true,
-                searchMovie: result
-            })
+        if (this.props.searchProp === 'title')
+        {
+            let result = findMovie(this.props.movies, title, this.props.searchProp)
+                if (result) {
+                    this.setState({
+                        hide: !this.state.hide,
+                        searchMovie: result
+                    })
+                } else {
+                    this.setState({hide: !this.state.hide})
+                    result = {title: ''}
+            }
+             this.props.updateMoviesInfoByTitle(result)
         } else {
-            result = {title: ''}
+            this.setState({hide: !this.state.hide})
+            this.props.updateMoviesInfoByTitle({'release_year': title})
         }
-        this.props.updateMoviesInfoByTitle(result)
     }
 
 
@@ -47,7 +54,8 @@ class Search extends Component {
                     updateAutocomplete={this.updateAutocomplete}
                     hide={this.state.hide}
                     searchMovie={this.searchMovie}
-                    title={this.state.searchMovie}/>
+                    title={this.state.searchMovie}
+                    toggle={this.props.toggleFilter}/>
                 <Autocomplete 
                     autocompleteList={this.state.autocompleteList}
                     hide={this.state.hide}
@@ -58,7 +66,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-    autocompleteList: PropTypes.array.isRequires,
+    autocompleteList: PropTypes.func.isRequires,
     updateMoviesInfoByTitle: PropTypes.func.isRequired
 }
 

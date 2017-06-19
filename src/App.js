@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from './MapComponent/Map';
 import Search from './SearchComponent/Search';
+import Filter from './SearchComponent/Filter';
 import MovieList from './MovieList/MovieList';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -13,11 +14,27 @@ class App extends Component {
     this.state = {
       movies: [],
       searchedMovie: [],
-      locations: []
+      locations: [],
+      isOpen: false,
+      defaultSearch: 'title'
     }
 
     this.updateMoviesInfoByTitle = this.updateMoviesInfoByTitle.bind(this)
+    this.toggleFilter = this.toggleFilter.bind(this)
+    this.updateFilter = this.updateFilter.bind(this)
   }
+
+
+  toggleFilter(){
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
+  updateFilter(value){
+    this.setState({defaultSearch: value})
+  }
+
 
   componentDidMount(){
     axios.get('https://data.sfgov.org/resource/wwmu-gmzc.json')
@@ -28,7 +45,7 @@ class App extends Component {
 
   updateMoviesInfoByTitle(input){
     let resultOfSearch = this.state.movies.filter(movie => {
-      return movie.title === input.title
+      return movie[this.state.defaultSearch] === input[this.state.defaultSearch]
     })
     this.setState({
       searchedMovie: resultOfSearch,
@@ -68,8 +85,19 @@ class App extends Component {
   render() {
     return (
       <div>
+          <div className="App">
+            <Filter show={this.state.isOpen}
+              onClose={this.toggleFilter}
+              changeFilter={this.updateFilter}
+              defaultSearch={this.state.defaultSearch}>
+              Filter
+            </Filter>
+          </div>
         <Map locations={this.state.locations} searchedMovie={this.state.searchedMovie}/>
-        <Search movies={this.state.movies} updateMoviesInfoByTitle={this.updateMoviesInfoByTitle}/>
+        <Search movies={this.state.movies} 
+                updateMoviesInfoByTitle={this.updateMoviesInfoByTitle}
+                searchProp={this.state.defaultSearch}
+                toggleFilter={this.toggleFilter}/>
         <MovieList moviesList={this.state.searchedMovie}/>
       </div>
     );

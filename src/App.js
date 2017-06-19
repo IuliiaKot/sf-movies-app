@@ -16,7 +16,7 @@ class App extends Component {
       searchedMovie: [],
       locations: [],
       isOpen: false,
-      defaultSearch: 'release_year'
+      defaultSearch: 'title'
     }
 
     this.updateMoviesInfoByTitle = this.updateMoviesInfoByTitle.bind(this)
@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   updateFilter(value){
-    debugger
     this.setState({defaultSearch: value})
   }
 
@@ -46,7 +45,7 @@ class App extends Component {
 
   updateMoviesInfoByTitle(input){
     let resultOfSearch = this.state.movies.filter(movie => {
-      return movie.title === input.title
+      return movie[this.state.defaultSearch] === input[this.state.defaultSearch]
     })
     this.setState({
       searchedMovie: resultOfSearch,
@@ -93,7 +92,8 @@ class App extends Component {
 
             <Filter show={this.state.isOpen}
               onClose={this.toggleFilter}
-              changeFilter={this.updateFilter}>
+              changeFilter={this.updateFilter}
+              defaultSearch={this.state.defaultSearch}>
               Here's some content for the modal
             </Filter>
           </div>

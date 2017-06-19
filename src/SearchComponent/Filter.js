@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 
 class Filter extends Component {
     changeSearch = (e) => {
-        console.log(e.target.name)
-        this.props.changeFilter(e.target.name)
+        // console.log(e.target.value)
+        this.props.changeFilter(e.target.value)
     }
 
     render(){
@@ -30,13 +30,22 @@ class Filter extends Component {
             minHeight: 100,
             padding: 30
         };
-
         return(
             <div className="backdrop" style={backdropStyle}>
                 <div className="modal" style={modalStyle}>
-                    <input type="radio" onClick={this.changeSearch} name="title"/> Search by Title( default)
-                    <input type="radio" onClick={this.changeSearch} name="release_year"/>Search by Year
+                    <form action="">
+                        <input type="radio" 
+                            onClick={this.changeSearch} 
+                            name="filter"
+                            value="title" 
+                            checked={this.props.defaultSearch === 'title'}/> Search by Title( default)
+                        <input type="radio" 
+                            onClick={this.changeSearch} 
+                            name="filter"
+                            value="release_year"
+                            checked={this.props.defaultSearch === 'release_year'}/>Search by Year
 
+                    </form>
                     <div className="footer">
                         <button onClick={this.props.onClose}>
                         Close

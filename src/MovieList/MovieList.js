@@ -21,7 +21,7 @@ class MovieList extends Component {
         let display = (!this.state.hide) ? 
             
             <div className="movie-list" id={this.state.hide ? 'hideList': ''} >
-                <span onClick={this.hideList}>Hide</span>
+            <div className="close" onClick={this.hideList}></div>
                {
                    this.props.moviesList.map((movie,id) => {
                        return <MovieInfo key={id} info={movie}/>
@@ -29,8 +29,15 @@ class MovieList extends Component {
                }
             </div>  
             :
-            <div className="movie-list" > 
-                <span onClick={this.hideList}>Show</span></div>
+  
+            <div className="movie-list" >
+                <div className="container" onClick={this.hideList}>
+                    <div className="bar1"></div>
+                    <div className="bar2"></div>
+                    <div className="bar3"></div>
+                </div>
+            </div>
+
         return(
             <div>{ display}</div>            
         )

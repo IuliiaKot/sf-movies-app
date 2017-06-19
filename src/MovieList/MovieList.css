@@ -4,9 +4,9 @@
     top: 60px;
     /*z-index:3;*/
     width: 26%;
-    background-color: rgba(255,255,255,0.7);
+    /*background-color: rgba(255,255,255,0.7);*/
     max-height: 90%;
-    box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+    /*box-shadow: 0 2px 5px rgba(0,0,0, 0.5);*/
     overflow: scroll;
 }
 
@@ -17,9 +17,9 @@
     left: 10%;
     top: 90px;
     width: 85%;
-    background-color: rgba(255,255,255,0.7);
+    /*background-color: rgba(255,255,255,0.7);*/
     max-height: 90%;
-    box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+    /*box-shadow: 0 2px 5px rgba(0,0,0, 0.5);*/
     overflow: scroll;
     
     }
@@ -27,4 +27,53 @@
     #hideList {
         display: none
     }
+}
+
+.close {
+    background: teal;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    /*border-radius: 5px;*/
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.close:after {
+    content: '';
+    height: 30px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 15px;
+}
+
+.close:before {
+    content: '';
+    height: 30px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 15px;
+}
+
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+    background: teal;
+    height: 35px;
+    width: 35px;
+    /*position: absolute*/
+}
+
+.bar1, .bar2, .bar3 {
+    width: 29px;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;  
+    margin-left: 3px;
+    margin-right: 3px;
 }

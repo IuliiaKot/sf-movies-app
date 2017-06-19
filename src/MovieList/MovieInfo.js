@@ -6,7 +6,7 @@ import './MovieInfo.css'
 const MovieInfo = (props) => {
         let {title, locations, release_year, fun_facts, actor_1, actor_2, actor_3, writer} = {...props.info}
         let actor = (actor_1 && actor_2) ? <p><strong>Actors: </strong>{actor_1}, {actor_2}</p> : null 
-        actor = actor_3 ? <p><strong>Actors: </strong>{actor_1}, {actor_2}, {actor_3}</p> : {actor} 
+        actor = actor_3 ? <p><strong>Actors: </strong>{actor_1}, {actor_2}, {actor_3}</p> : actor 
         return (
             <div className='info'>
                 <div className="card">

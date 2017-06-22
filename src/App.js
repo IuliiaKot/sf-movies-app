@@ -22,7 +22,7 @@ class App extends Component {
   //   this.updateMoviesInfoByTitle = this.updateMoviesInfoByTitle.bind(this)
   //   this.toggleFilter = this.toggleFilter.bind(this)
   //   this.updateFilter = this.updateFilter.bind(this)
-  // }
+  }
 
 
   toggleFilter(){

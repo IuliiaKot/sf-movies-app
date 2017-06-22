@@ -19,10 +19,10 @@ class App extends Component {
       defaultSearch: 'title'
     }
 
-    this.updateMoviesInfoByTitle = this.updateMoviesInfoByTitle.bind(this)
-    this.toggleFilter = this.toggleFilter.bind(this)
-    this.updateFilter = this.updateFilter.bind(this)
-  }
+  //   this.updateMoviesInfoByTitle = this.updateMoviesInfoByTitle.bind(this)
+  //   this.toggleFilter = this.toggleFilter.bind(this)
+  //   this.updateFilter = this.updateFilter.bind(this)
+  // }
 
 
   toggleFilter(){
@@ -36,12 +36,12 @@ class App extends Component {
   }
 
 
-  componentDidMount(){
-    axios.get('https://data.sfgov.org/resource/wwmu-gmzc.json')
-      .then(result => {
-        this.setState({movies: result.data})
-      })
-  }
+  // componentDidMount(){
+  //   axios.get('https://data.sfgov.org/resource/wwmu-gmzc.json')
+  //     .then(result => {
+  //       this.setState({movies: result.data})
+  //     })
+  // }
 
   updateMoviesInfoByTitle(input){
     let resultOfSearch = this.state.movies.filter(movie => {

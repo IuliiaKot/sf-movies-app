@@ -85,7 +85,8 @@ class App extends Component {
   render() {
     return (
       <div>
-          <div className="App">
+        Hello
+          {/*<div className="App">
             <Filter show={this.state.isOpen}
               onClose={this.toggleFilter}
               changeFilter={this.updateFilter}
@@ -98,7 +99,7 @@ class App extends Component {
                 updateMoviesInfoByTitle={this.updateMoviesInfoByTitle}
                 searchProp={this.state.defaultSearch}
                 toggleFilter={this.toggleFilter}/>
-        <MovieList moviesList={this.state.searchedMovie}/>
+        <MovieList moviesList={this.state.searchedMovie}/>*/}
       </div>
     );
   }

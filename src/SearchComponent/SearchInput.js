@@ -18,8 +18,9 @@ class SearchInput extends Component {
         this.props.toggle()
     }
 
-    updateAutocomplete(){
-        let searchMovie = this.refs.title.value;
+    updateAutocomplete(e){
+        // debugger
+        let searchMovie = e.target.value;
         this.setState({
             searchTitle: searchMovie
         })
@@ -32,12 +33,20 @@ class SearchInput extends Component {
         }
     }
 
+    componentWillReceiveProps(props){
+        this.setState({
+            searchTitle: this.props.title.title
+        })
+    }
+
+
     render(){
         return(
             <div className="search-input">
                 <input ref="title" type="text" placeholder="Enter movie here..."
                 onChange={this.updateAutocomplete} onKeyPress={this.selectMovie}
-                />
+                value={this.state.searchTitle}
+                          />
                 <img onClick={this.toggleFilter} 
                 src="https://cdn2.iconfinder.com/data/icons/cute-tech-icon-set-1/512/Filter-64.png" id="input_img"/>
 

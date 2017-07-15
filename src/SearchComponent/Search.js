@@ -19,7 +19,7 @@ class Search extends Component {
     }
 
     updateAutocomplete(title){
-        
+
         let list = searchMovies(this.props.movies, title, this.props.searchProp)
         this.setState({
             hide: false,
@@ -68,8 +68,10 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-    autocompleteList: PropTypes.func.isRequires,
-    updateMoviesInfoByTitle: PropTypes.func.isRequired
+    updateMoviesInfoByTitle: PropTypes.func.isRequired,
+    toggleFilter: PropTypes.func,
+    searchProp: PropTypes.string.isRequired,    
+    movies: PropTypes.array.isRequired
 }
 
 export default Search;

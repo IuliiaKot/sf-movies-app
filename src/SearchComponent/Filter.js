@@ -41,7 +41,9 @@ class Filter extends Component {
 
 Filter.propTypes = {
     onClose: PropTypes.func.isRequired,
-    show: PropTypes.bool.isRequired
+    show: PropTypes.bool.isRequired,
+    defaultSearch: PropTypes.string.isRequired,
+    changeFilter: PropTypes.func
 }
 
 

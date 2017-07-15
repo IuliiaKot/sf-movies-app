@@ -105,8 +105,4 @@ class App extends Component {
 }
 
 
-App.propTypes = {
-  movies: PropTypes.array.isRequired
-}
-
 export default App;

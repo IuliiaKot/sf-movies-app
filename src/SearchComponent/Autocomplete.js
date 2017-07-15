@@ -17,7 +17,7 @@ class Autocomplete extends Component {
 
     render(){
 
-        let list = this.props.autocompleteList.map(movie => <li>{movie.title}</li>)
+        let list = this.props.autocompleteList.map((movie, id) => <li key={id}>{movie.title}</li>)
         return(
             <div className={this.props.hide ? 'hide': ''}>
                 <ul className="autocomplete" onClick={this.selectMovie}>
@@ -29,7 +29,9 @@ class Autocomplete extends Component {
 }
 
 Autocomplete.propTypes = {
-    searchMovie: PropTypes.func.isRequired
+    searchMovie: PropTypes.func.isRequired,
+    autocompleteList: PropTypes.array.isRequired,
+    hide: PropTypes.bool.isRequired
 }
 
 

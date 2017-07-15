@@ -19,7 +19,6 @@ class SearchInput extends Component {
     }
 
     updateAutocomplete(e){
-        // debugger
         let searchMovie = e.target.value;
         this.setState({
             searchTitle: searchMovie
@@ -59,7 +58,9 @@ class SearchInput extends Component {
 
 SearchInput.propTypes = {
     updateAutocomplete: PropTypes.func.isRequired,
-    searchMovie: PropTypes.func.isRequired
+    searchMovie: PropTypes.func.isRequired,
+    hide: PropTypes.bool.isRequired,
+    title: PropTypes.string
 
 }
 

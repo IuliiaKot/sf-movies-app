@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './MovieList.css'
-import MovieInfo from './MovieInfo'
+import MovieInfo from './MovieInfo';
+import PropTypes from 'prop-types';
 
 
 class MovieList extends Component {
@@ -44,4 +45,8 @@ class MovieList extends Component {
     }
 }
 
+
+MovieList.propTypes = {
+    moviesList: PropTypes.array.isRequired
+}
 export default MovieList;
